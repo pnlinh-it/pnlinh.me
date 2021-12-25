@@ -1,0 +1,69 @@
+<div class="animate-up" id="contact" ng-controller="contactCtl as vm">
+
+    <!--<div class="title">-->
+    <!--Contact Me-->
+    <!--</div>-->
+    <md-card class="">
+        <md-toolbar class="contact-header">
+            <div class="md-toolbar-tools">
+                <h2 style="color: white"><span>Contact Me</span></h2>
+            </div>
+        </md-toolbar>
+
+
+        <md-card-content>
+
+            <form name="vm.formSubmit" style="margin-top: 15px">
+                <div class="row">
+                    <div class="col-5">
+
+
+                        <md-input-container class="md-block">
+
+                            <label>Name</label>
+                            <input name="name" ng-model="vm.name" required>
+                            <div ng-messages="vm.formSubmit.name.$error" role="alert">
+                                <div ng-message="required">Please enter a value for this field.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+
+                    <div class="col-5">
+                        <md-input-container class="md-block">
+                            <label>Email</label>
+                            <input name="email" ng-model="vm.email"
+                                   ng-pattern="/^[A-Za-z]+[A-Za-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required>
+                            <div ng-messages="vm.formSubmit.email.$error" role="alert">
+                                <div ng-message="required">Please enter a value for this field.</div>
+                                <div ng-message="pattern">This field must be a valid email address.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+                <div class="row">
+                    <md-input-container class=" md-block">
+                        <label>Message</label>
+                        <textarea name="message" ng-model="vm.message" rows="3" required></textarea>
+                        <div ng-messages="vm.formSubmit.message.$error" role="alert">
+                            <div ng-message="required">Please enter a value for this field.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div class="row">
+                    <md-button ng-click="vm.submit($event)" ng-disabled="!vm.formSubmit.$valid"
+                               data-style="expand-left" class="btn-submit ladda-button md-raised">
+                        <span class="ladda-label">Submit</span>
+                    </md-button>
+                </div>
+
+            </form>
+
+
+        </md-card-content>
+
+    </md-card>
+
+
+</div>
+
+

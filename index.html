@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pham Ngoc Linh - Resume</title>
+    <meta name="viewport" content="initial-scale=1"/>
+    <meta name="description" content="Pham Ngoc Linh - Resume">
+    <meta name="keywords" content="Pham Ngoc Linh - Resume">
+    <meta name="author" content="Pham Ngoc Linh">
+
+    <link rel="stylesheet" href="component/angular-material.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/timeline.css">
+    <link rel="stylesheet" href="js/plugin/gallery/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="js/plugin/OwlCarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="js/plugin/OwlCarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="js/plugin/ladda/ladda-themeless.min.css">
+
+    <script src="component/angular.min.js"></script>
+    <script src="component/jquery.min.js"></script>
+    <script src="component/angular-route.min.js"></script>
+    <script src="component/angular-animate.min.js"></script>
+    <script src="component/angular-aria.min.js"></script>
+    <script src="component/angular-messages.min.js"></script>
+    <script src="js/jquery.parallax-1.1.3.js"></script>
+    <script src="js/plugin/gallery/js/blueimp-gallery.min.js"></script>
+    <script src="js/plugin/OwlCarousel/owl.carousel.min.js"></script>
+    <script src="js/plugin/ladda/spin.min.js"></script>
+    <script src="component/angular-material.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+    <script src="js/plugin/ladda/ladda.min.js"></script>
+
+    <script src="js/site.js"></script>
+    <script src="app.js"></script>
+
+
+</head>
+<body ng-class="showMobileMenu ? 'mobile-nav-opened' : ''" ng-app="myApp"
+      ng-controller="MainCtl as vm" ng-cloak>
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+<div class="mobile-nav">
+
+    <div class="circle-image">
+        <img src="img/me.png"/>
+    </div>
+    <ul>
+        <li ng-class="currentMenu=='home'? 'active' : ''"><a href="#/#">Home</a></li>
+        <li ng-class="currentMenu=='project'? 'active' : ''"><a href="#/project">Project</a></li>
+        <li ng-class="currentMenu=='contact'? 'active' : ''"><a href="#/contact">Contact</a></li>
+    </ul>
+    <md-button style="font-size: 20px;" ng-click="showMobileMenu = !showMobileMenu"
+               class="md-icon-button btn-nav-mobile" aria-label="More">
+        <md-icon class="material-icons" style="color: black"><i class="fa fa-times"
+                                                                aria-hidden="true"></i>
+        </md-icon>
+    </md-button>
+
+</div>
+
+<div ng-class="isHasImg? 'wrapper has-header-img':'wrapper '">
+    <div class="preloader"></div>
+    <div class="header">
+        <div class="header-menu">
+            <div class="row">
+                <div class="f-right">
+                    <nav class="row">
+                        <ul>
+                            <li ng-class="currentMenu=='home'? 'active' : ''"><a href="#/#">Home</a>
+                            </li>
+                            <li ng-class="currentMenu=='project'? 'active' : ''"><a
+                                    href="#/project">Project</a></li>
+                            <li ng-class="currentMenu=='contact'? 'active' : ''"><a
+                                    href="#/contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <md-button style="font-size: 25px; margin-right: 20px;"
+                               ng-click="showMobileMenu = !showMobileMenu"
+                               class="md-icon-button btn-nav-mobile" aria-label="More">
+                        <md-icon class="material-icons"><i class="fa fa-bars"
+                                                           aria-hidden="true"></i>
+                        </md-icon>
+                    </md-button>
+                </div>
+            </div>
+        </div>
+        <div class="header-bg awe-parallax"></div>
+    </div>
+    <div class="container">
+        <ng-view></ng-view>
+    </div>
+</div>
+
+<div ng-click="showMobileMenu = !showMobileMenu" id="overlay"></div>
+
+</body>
+</html>
