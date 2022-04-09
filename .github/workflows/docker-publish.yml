@@ -39,3 +39,20 @@ jobs:
           file: ./Dockerfile
           context: .
           tags: ${{ steps.docker_meta.outputs.tags }}
+
+  deploy:
+    runs-on: ubuntu-20.04
+    needs: build
+    steps:
+      - name: Deploy image
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USERNAME }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          port: ${{ secrets.DEPLOY_PORT }}
+          script: |
+            cd /var/www/pnlinh-me
+            docker-compose pull
+            docker-compose up -d
+            docker image prune -f
