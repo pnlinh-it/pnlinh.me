@@ -50,12 +50,13 @@
 <div class="mobile-nav">
 
     <div class="circle-image">
-        <img src="img/me.png"/>
+        <img src="img/me.jpg"/>
     </div>
     <ul>
         <li ng-class="currentMenu=='home'? 'active' : ''"><a href="#/#">Home</a></li>
         <li ng-class="currentMenu=='project'? 'active' : ''"><a href="#/project">Project</a></li>
         <li ng-class="currentMenu=='contact'? 'active' : ''"><a href="#/contact">Contact</a></li>
+        <li ng-class="currentMenu=='privacy-policy'? 'active' : ''"><a href="#/privacy-policy">Privacy</a></li>
     </ul>
     <md-button style="font-size: 20px;" ng-click="showMobileMenu = !showMobileMenu"
                class="md-icon-button btn-nav-mobile" aria-label="More">
@@ -80,6 +81,8 @@
                                     href="#/project">Project</a></li>
                             <li ng-class="currentMenu=='contact'? 'active' : ''"><a
                                     href="#/contact">Contact</a></li>
+                            <li ng-class="currentMenu=='privacy-policy'? 'active' : ''"><a
+                                    href="#/privacy-policy">Privacy</a></li>
                         </ul>
                     </nav>
                     <md-button style="font-size: 25px; margin-right: 20px;"
