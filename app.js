@@ -22,10 +22,10 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         templateUrl: 'view/contact/contact.html',
         controller: 'contactCtl'
     }).when('/privacy-policy/ev-dict', {
-        templateUrl: 'view/privacy-policy/ev-dict.html',
-        controller: 'evDictPrivacyCtl'
-    })
-        .otherwise({redirectTo: '/'});
+        templateUrl: 'view/privacy-policy/ev-dict.html', controller: 'evDictPrivacyCtl'
+    }).when('/privacy-policy/bau-cua', {
+        templateUrl: 'view/privacy-policy/bau-cua.html', controller: 'bauCuaCtl'
+    }).otherwise({redirectTo: '/'});
 }]);
 
 app.controller('MainCtl', function ($scope, CONFIG) {
@@ -41,6 +41,16 @@ app.controller('evDictPrivacyCtl', function ($scope, $rootScope) {
     jQuery('.preloader').show();
     $scope.$on('$viewContentLoaded', function () {
         showAnimation('#evDict');
+    })
+})
+
+app.controller('bauCuaCtl', function ($scope, $rootScope) {
+    $scope.$parent.currentMenu = "privacy-policy";
+    $scope.$parent.isHasImg = false;
+    $scope.$parent.showMobileMenu = false;
+    jQuery('.preloader').show();
+    $scope.$on('$viewContentLoaded', function () {
+        showAnimation('#bauCua');
     })
 })
 
