@@ -25,6 +25,8 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         templateUrl: 'view/privacy-policy/ev-dict.html', controller: 'evDictPrivacyCtl'
     }).when('/privacy-policy/bau-cua', {
         templateUrl: 'view/privacy-policy/bau-cua.html', controller: 'bauCuaCtl'
+    }).when('/privacy-policy/find-my-work', {
+        templateUrl: 'view/privacy-policy/find-my-work.html', controller: 'findMyWorkCtl'
     }).otherwise({redirectTo: '/'});
 }]);
 
@@ -51,6 +53,16 @@ app.controller('bauCuaCtl', function ($scope, $rootScope) {
     jQuery('.preloader').show();
     $scope.$on('$viewContentLoaded', function () {
         showAnimation('#bauCua');
+    })
+})
+
+app.controller('findMyWorkCtl', function ($scope, $rootScope) {
+    $scope.$parent.currentMenu = "privacy-policy";
+    $scope.$parent.isHasImg = false;
+    $scope.$parent.showMobileMenu = false;
+    jQuery('.preloader').show();
+    $scope.$on('$viewContentLoaded', function () {
+        showAnimation('#findMyWork');
     })
 })
 
